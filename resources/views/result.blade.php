@@ -1,22 +1,31 @@
+<!DOCTYPE html>
 <html>
-    <link href="//opgg-static.akamaized.net/css3/common.css?t=1531383300" rel="stylesheet" type="text/css">
-    <link href="//opgg-static.akamaized.net/css3/sprite.css?t=1531383300" rel="stylesheet" type="text/css">
-    <link href="//opgg-static.akamaized.net/css3/forum.css?t=1531383300" rel="stylesheet" type="text/css">
-    <link href="//opgg-static.akamaized.net/css3/new.css?t=1531383300" rel="stylesheet" type="text/css">
-    <link href="//opgg-static.akamaized.net/css3/summoner.css?t=1531383300" rel="stylesheet" type="text/css">
-    <style>
-        .SideContent {
-            display: inline-block;
-            width: 300px;
-            font-size: 12px;
-            vertical-align: top;
-        }
-    </style>
-    @foreach( $allData as $info)
-    <div class="SideContent">
-        <h1>{{ $info['name'] }}</h1>
-        {!! $info['rank'] !!}
-        {!! $info['content'] !!}
+<head>
+<title></title>
+<link href="/css/result.css" rel="stylesheet">
+<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+</head>
+<body>
+<div class="container">
+    <div class="row profile">
+        @foreach( $allData as $data )
+        <div class="col-md-2">
+            <div class="profile-sidebar">
+                <div class="profile-userpic">
+                    <img src="{{ $data['info']['img'] }}" class="img-responsive" alt="">
+                </div>
+                <div class="profile-usertitle">
+                    <div class="profile-usertitle-name">
+                        {{ $data['info']['name'] }}
+                    </div>
+                    <div class="profile-usertitle-job">
+                        {{ $data['info']['rank'] }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        @endforeach
     </div>
-    @endforeach
+</div>
+</body>
 </html>

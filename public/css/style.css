@@ -1,0 +1,264 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background: none;
+    border: none;
+    box-shadow: none;
+    resize: none;
+    outline: none;
+}
+
+html, body, .container, #search, #search-form, #search-box, #results, #results .header {
+    width: 100%;
+}
+
+html, body, .container, #search-box {
+    height: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+a, body, #search-box:focus ~ #submit {
+    color: #999;
+}
+
+body {
+    font: 400 100%/1.5 'Quicksand', sans-serif;
+    background: #F9F9F9;
+}
+
+.button {
+    cursor: pointer;
+}
+
+/* Search */
+.container.search-mode {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#search {
+    max-width: 550px;
+    padding: 1em;
+}
+
+#search-form {
+    position: relative;
+    height: 3em;
+    margin-bottom: 1em;
+}
+
+#search-box, #search-box + #search-box-label:before {
+    background: #F9F9F9;
+    color: #888;
+}
+
+#search-box {
+    margin: 0 0 1em;
+    padding: 1em 3.4em 1em 1.5em;
+    border: 1px solid #CCC;
+    border-radius: 2em;
+    transition: border-color .2s ease-in-out;
+    font-size: .9em;
+}
+#search-box:focus {
+    border-color: #999;
+}
+
+#search-box:focus + #search-box-label:before,
+#search-box:valid + #search-box-label:before {
+    transition-duration: .2s;
+    transform: translate(0, -1.5em) scale(0.9, 0.9);
+}
+
+#search-box:invalid + #search-box-label:before {
+    content: attr(alt);
+}
+
+#search-box + #search-box-label {
+    position: absolute;
+    top: .7em;
+    display: block;
+    pointer-events: none;
+}
+
+#search-box + #search-box-label:before {
+    content: attr(data-info);
+    display: inline-block;
+    margin: 0 1em;
+    padding: 0 2px;
+    white-space: nowrap;
+    transition: 0.3s ease-in-out;
+}
+
+#submit {
+    position: absolute;
+    top: .18em;
+    right: 0;
+    margin-right: .4em;
+    font-size: 2em;
+    color: #CCC;
+    transition: color .2s;
+}
+
+.title, .footer {
+    font: 800 3em 'Raleway', 'Quicksand', sans-serif;
+    text-transform: uppercase;
+}
+#search .title {
+    margin-bottom: 1em;
+}
+
+#search .title .icon {
+    font-size: .9em;
+    color: #777;
+}
+
+#results .header {
+    position: fixed;
+    top: 0;
+    overflow: auto;
+    margin-bottom: 0;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+    transition: all .3s;
+}
+
+#results .header .title {
+    float: left;
+    font-size: 1.7em;
+    margin-top: .05em;
+}
+
+/* Results */
+.header .inner-container {
+    padding: .2em 1em;
+    overflow: auto;
+}
+.header .inner-container, #articles {
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.header.dark {
+    background: #999;
+    color: #F9F9F9;
+}
+
+#close-icon {
+    float: right;
+    font-size: 1.5em;
+}
+
+#articles {
+    padding: 45px 1em;
+}
+
+.article {
+    display: block;
+    margin: .5em 0;
+    padding: 1em 0;
+    border-bottom: 1px dotted #DDD;
+    transition: color .2s;
+}
+.article:hover, .random-article:hover, #load-more:hover {
+    color: #555;
+}
+
+.article h1 {
+    font-size: 1.5em;
+    font-weight: 100;
+}
+.article p {
+    font-size: .9em;
+    text-align: justify;
+}
+
+.error {
+    text-align: center;
+    padding-top: 20%;
+}
+
+/* footer */
+.footer {
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+    left: 0;
+    padding: 5px 0;
+    font-size: .9em;
+    background: #F9F9F9;
+}
+.footer a {
+    color: #555;
+}
+.footer .icon {
+    display: inline-block;
+    vertical-align: middle;
+    fill: #555;
+}
+
+#load-more {
+    display: block;
+    text-align: right;
+}
+
+
+.word {
+  position: absolute;
+  width: 220px;
+  opacity: 0;
+}
+
+.letter {
+  display: inline-block;
+  position: relative;
+  float: left;
+  transform: translateZ(25px);
+  transform-origin: 50% 50% 25px;
+}
+
+.letter.out {
+  transform: rotateX(90deg);
+  transition: transform 0.32s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+.letter.behind {
+  transform: rotateX(-90deg);
+}
+
+.letter.in {
+  transform: rotateX(0deg);
+  transition: transform 0.38s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.wisteria {
+  color: #8e44ad;
+}
+
+.belize {
+  color: #2980b9;
+}
+
+.pomegranate {
+  color: #c0392b;
+}
+
+.green {
+  color: #16a085;
+}
+
+.midnight {
+  color: #2c3e50;
+}
+p {
+  display: inline-block;
+  vertical-align: top;
+  margin: 0;
+}

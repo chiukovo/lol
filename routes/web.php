@@ -15,14 +15,5 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('welcome', function () {
-    return view('welcome');
-});
-
-Route::get('login', function () {
-    return view('login');
-});
-
-Route::get('eatEgg', 'EggController@index');
-Route::get('detailEgg', 'EggController@detailEgg');
-Route::get('pump', 'EggController@pump');
+Route::get('/', 'LolController@index');
+Route::get('/result', 'LolController@result');
